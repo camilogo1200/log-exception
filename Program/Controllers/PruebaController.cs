@@ -19,11 +19,42 @@ namespace Program.Controllers
         [LogExceptionFilter]
         private void doSomething(string id)
         {
-            // int uh = 14;
-            //throw new Exception("sukajdgjkd");
-           int pru2 = Convert.ToInt32(id);
-            throw new NotImplementedException();
+            string df = null;
 
-        }
+            //pruebaWrapper prueba = new pruebaWrapper();
+
+            //prueba.pru2 = df.ToUpper();
+            bool aplicaConvenio = false;
+
+            WPF.Comun.ServicioAdmisionMensajeria.ADPeaton pp = new WPF.Comun.ServicioAdmisionMensajeria.ADPeaton
+            {
+                Apellido1 = df,
+
+            };
+
+            PropertiesValidator<WPF.Comun.ServicioAdmisionMensajeria.ADPeaton> validador = new PropertiesValidator<WPF.Comun.ServicioAdmisionMensajeria.ADPeaton>();
+            validador.Validate(pp);
+
+            //WPF.Comun.ServicioAdmisionMensajeria.ADMensajeriaTipoCliente destinatarioRemitente = new WPF.Comun.ServicioAdmisionMensajeria.ADMensajeriaTipoCliente
+            //{
+            //    FacturaRemitente = false,
+            //    PeatonDestinatario = !aplicaConvenio ? new WPF.Comun.ServicioAdmisionMensajeria.ADPeaton
+            //    {
+            //        Apellido1 = df.Trim(),
+
+            //    } : null
+
+            //};
+            }
+
+
+
+
+        // int uh = 14;
+        //throw new Exception("sukajdgjkd");
+        // int pru2 = Convert.ToInt32(id);
+
+
     }
 }
+

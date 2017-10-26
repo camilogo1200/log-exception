@@ -4,6 +4,11 @@ using System.IO;
 using System.Reflection;
 using System.Web.Http.Filters;
 using System.Web.Configuration;
+using System.Runtime.Serialization;
+using System.Security;
+using System.ServiceModel.Channels;
+using WPF.Comun.ServicioAdmisionMensajeria;
+using System.ServiceModel;
 
 namespace CustomException
 {
@@ -43,15 +48,23 @@ namespace CustomException
         public void Guardar(HttpActionExecutedContext exep)
         {
             string Nombre = WebConfigurationManager.AppSettings["Nombre"].ToString();
-            string Ruta = @""+ WebConfigurationManager.AppSettings["Ruta"].ToString(); ;
-            string Archivo = @""+Ruta+Nombre+".log";
+            string Ruta = @"" + WebConfigurationManager.AppSettings["Ruta"].ToString(); ;
+            string Archivo = @"" + Ruta + Nombre + ".log";
             if (!Directory.Exists(Ruta))
             {
                 Directory.CreateDirectory(Ruta);
             }
+
+
             Exception ex = exep.Exception;
             string Separador = "=================================================== \r\n";
             String msg = Separador + DateTime.Now.ToString() + "\r\n" + Separador + " NameSpace: {0}, \r\n Class: {1},\r\n {2}: {3}, \r\n Line: {4}, \r\n Excepcion: {5} \r\n ";
+
+            if (ex is FaultException<ControllerException>)
+            {
+                ControllerException exc = ((FaultException<ControllerException>)ex).Detail;
+                msg += "\r\n Tipo Error Controller: " + exc.TipoError + "\r\n Mensaje Controller: " + exc.Mensaje;
+            }
             StackTrace st = new StackTrace(ex.GetBaseException(), true);
             string mensaje = st.ToString();
             StackFrame frame = st.GetFrame(0);
