@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>CustomExceptionInterrapidisimo</id>
-    <version>1.0.3</version>
+    <!-- This will use the AssemblyName -->
+    <id>$id$</id>
+    <!-- This will use the AssemblyVersion -->
+    <version>$version$</version>
     <title>CustomExceptionInterrapidisimo</title>
 		<authors>Miguel Angel Lara Alvarado - Cristhian Camilo Gómez N. - Yeison Gustavo Albarracin M.</authors>
     <owners>Interrapidisimo S.A.</owners>

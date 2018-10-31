@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Program
 {
-    public class pruebaWrapper
+    public class PruebaWrapper
     {
-        [requiered]
+        [Required]
         public int pru1 { get; set; }
+
         public string pru2 { get; set; }
         public bool pru3 { get; set; }
     }

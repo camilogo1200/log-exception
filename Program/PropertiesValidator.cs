@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Reflection;
+﻿using System.Collections;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Reflection;
 
 namespace Program
 {
     public class PropertiesValidator<TEntity> where TEntity : new()
     {
-        
-
-        public void Validate(TEntity entityValues)
+        public void Validate( TEntity entityValues )
         {
-            object properties = typeof(TEntity).GetProperties().ToList();
-            properties = typeof(TEntity).GetProperties()
+            //PropertyInfo[]  properties = typeof(TEntity).GetProperties();
+            IEnumerable properties = typeof(TEntity).GetProperties()
                      .Where(p => p.IsDefined(typeof(ColumnAttribute), false))
                      .Select(p => new
                      {
@@ -25,14 +21,12 @@ namespace Program
 
             foreach (PropertyInfo currentRealProperty in properties)
             {
-
                 object valor = currentRealProperty.GetValue(entityValues);
 
-                if(valor == null)
+                if (valor == null)
                 {
                     string exceptionMessage = string.Format("The property {0} of class {1} was not as expected.", currentRealProperty.Name, currentRealProperty.DeclaringType.Name);
-                }                  
-               
+                }
             }
         }
     }

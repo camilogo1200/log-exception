@@ -1,9 +1,5 @@
 ﻿using CustomException;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace Program.Controllers
@@ -11,50 +7,18 @@ namespace Program.Controllers
     public class PruebaController : ApiController
     {
         [LogExceptionFilter]
-        public IHttpActionResult get(string id)
+        public IHttpActionResult Get( string id )
         {
-            doSomething(id);
-            return Ok("jdjk");
+            throw new Exception("Mensaje Exception :D");
         }
-        [LogExceptionFilter]
-        private void doSomething(string id)
+
+        public IHttpActionResult PostNombreMetodo( PruebaWrapper id )
         {
-            string df = null;
-
-            //pruebaWrapper prueba = new pruebaWrapper();
-
-            //prueba.pru2 = df.ToUpper();
-            bool aplicaConvenio = false;
-
-            WPF.Comun.ServicioAdmisionMensajeria.ADPeaton pp = new WPF.Comun.ServicioAdmisionMensajeria.ADPeaton
-            {
-                Apellido1 = df,
-
-            };
-
-            PropertiesValidator<WPF.Comun.ServicioAdmisionMensajeria.ADPeaton> validador = new PropertiesValidator<WPF.Comun.ServicioAdmisionMensajeria.ADPeaton>();
-            validador.Validate(pp);
-
-            //WPF.Comun.ServicioAdmisionMensajeria.ADMensajeriaTipoCliente destinatarioRemitente = new WPF.Comun.ServicioAdmisionMensajeria.ADMensajeriaTipoCliente
-            //{
-            //    FacturaRemitente = false,
-            //    PeatonDestinatario = !aplicaConvenio ? new WPF.Comun.ServicioAdmisionMensajeria.ADPeaton
-            //    {
-            //        Apellido1 = df.Trim(),
-
-            //    } : null
-
-            //};
-            }
-
-
-
+            return Ok(id);
+        }
 
         // int uh = 14;
         //throw new Exception("sukajdgjkd");
         // int pru2 = Convert.ToInt32(id);
-
-
     }
 }
-
