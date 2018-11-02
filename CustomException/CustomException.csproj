@@ -138,6 +138,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="CustomException.nuspec" />
+    <None Include="CustomExceptionInterrapidisimo.nuspec" />
     <None Include="package.builder.json" />
     <None Include="packages.config" />
   </ItemGroup>

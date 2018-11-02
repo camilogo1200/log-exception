@@ -208,7 +208,6 @@
     <Compile Include="pruebaWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Imagenes\btnPowerOff.png" />
     <Content Include="Web.config" />

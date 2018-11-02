@@ -37,7 +37,7 @@
     // the value to true to control when a package is published.
     // e.g. To publish package when building nightly build on VSO, add the following to the build definitions process template
     // 2. Build -> 5. Advanced -> MSBuild Arguments -> "/p:PublishNuGetPackage=true"
-    "PublishOnBuild": false,
+    "PublishOnBuild": true,
 
     // The API key for the server.
     // You can override this behavior by parsing in a MSBuild property named PublishApiKey.
@@ -46,8 +46,8 @@
     // Specifies the server URL. If not specified, nuget.org is used unless DefaultPushSource config value
     // is set in the NuGet config file. If NuGet.exe identifies a UNC/folder source, it will perform the file copy to the source
     // You can override this behavior by parsing in a MSBuild property named PublishSource.
-    "Source": "http://172.20.10.124:5689/api/v2/package",
-    "GeneratePublishCommand": false,
+    "Source": "http://10.100.145.124:5689/api/v2/package",
+    "GeneratePublishCommand": true,
     // Specifies the symbol server URL.
     // If the presence of a .symbols.nupkg package is detected e.g.Symbols = "true" it will be automatically pushed to SymbolSource.org unless
     // an alternative symbol source is specified.
